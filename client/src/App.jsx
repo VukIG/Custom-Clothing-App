@@ -1,35 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Main from './components/Main';
+import Cart from './components/Cart';
+import Designer from './components/Designer';
+import DesignView from './components/DesignView';
+import Home from './components/Home';
+import NotFound from './components/NotFound';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+//bug sa tailwindcss-om
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Main />}>
+            <Route index element={<Home />} />
+            <Route path="/designer" element={<Designer />} />
+            <Route path="/designer/:clothes" element={<DesignView />} />
+            <Route path="/cart" element={<Cart />} />
+          </Route>
+          <Route>
+            <Route path="/*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
