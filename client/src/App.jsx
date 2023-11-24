@@ -1,7 +1,7 @@
 import Main from './components/Main';
 import Cart from './components/Cart';
-import Designer from './components/Designer';
-import DesignView from './components/DesignView';
+import Designer from './components/Designer/Designer';
+import DesignView from './components/Designer/DesignView';
 import Home from './components/Home';
 import NotFound from './components/NotFound';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';

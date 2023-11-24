@@ -3,7 +3,7 @@ import Header from './Header';
 
 function Main() {
   return (
-    <div>
+    <div className='bg-slate-100 h-screen'>
       <Header />
       <div>
         <Outlet />

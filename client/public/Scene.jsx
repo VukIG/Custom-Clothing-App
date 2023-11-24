@@ -15,7 +15,7 @@ export default function Model(props) {
   const group = useRef();
   useFrame(() => {
     group.current.rotation.y += 0.01;
-    group.current.rotation.x += 0.001; // Adjust the rotation speed as needed
+    group.current.rotation.x += 0.0; // Adjust the rotation speed as needed
   });
   return (
     <group ref={group} {...props} dispose={null}>
