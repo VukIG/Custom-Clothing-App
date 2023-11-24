@@ -5,7 +5,6 @@ import DesignView from './components/DesignView';
 import Home from './components/Home';
 import NotFound from './components/NotFound';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
 //bug sa tailwindcss-om
 
 function App() {
