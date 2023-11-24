@@ -1,8 +1,11 @@
 import { twMerge } from 'tailwind-merge';
+import { motion } from 'framer-motion';
 function Button({ children, onClick, className = '' }) {
   return (
-    <button
+    <motion.button
       onClick={onClick}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
       className={twMerge(
         `bg-red-400
         text-white py-3 px-4 rounded flex items-center
@@ -12,7 +15,7 @@ function Button({ children, onClick, className = '' }) {
       )}
     >
       {children}
-    </button>
+    </motion.button>
   );
 }
 

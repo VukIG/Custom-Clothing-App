@@ -5,7 +5,7 @@ import tailwindcss from 'tailwindcss';
 import gltf from 'vite-plugin-gltf';
 
 export default defineConfig({
-  plugins: [react(), svgr(), tailwindcss(),gltf()],
+  plugins: [react(), svgr(), tailwindcss(), gltf()],
   build: {
     assetsInclude: ['**/*.gltf', '**/*.glb'],
   },

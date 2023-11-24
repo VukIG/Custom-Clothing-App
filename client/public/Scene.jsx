@@ -7,16 +7,21 @@ Source: https://sketchfab.com/3d-models/earth-f7a76c63ff1846afb2d606e5c8369c15
 Title: Earth
 */
 
-import React, { useRef } from 'react'
-import { useGLTF } from '@react-three/drei'
-
+import { useRef } from 'react';
+import { useGLTF } from '@react-three/drei';
+import { useFrame } from 'react-three-fiber';
 export default function Model(props) {
-  const { nodes, materials } = useGLTF('/scene.gltf')
+  const { nodes, materials } = useGLTF('/scene.gltf');
+  const group = useRef();
+  useFrame(() => {
+    group.current.rotation.y += 0.01;
+    group.current.rotation.x += 0.001; // Adjust the rotation speed as needed
+  });
   return (
-    <group {...props} dispose={null}>
+    <group ref={group} {...props} dispose={null}>
       <mesh geometry={nodes.Object_4.geometry} material={materials['Scene_-_Root']} scale={3} />
     </group>
-  )
+  );
 }
 
-useGLTF.preload('/scene.gltf')
+useGLTF.preload('/scene.gltf');
